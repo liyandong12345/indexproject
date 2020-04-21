@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka-client" />
+        <module name="eureka-getway" />
+        <module name="eureka-grade" />
+        <module name="eureka-server" />
+        <module name="eureka-student" />
+        <module name="springcould" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-getway" target="1.8" />
+      <module name="eureka-grade" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="eureka-student" target="1.8" />
+      <module name="springcould" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
