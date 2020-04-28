@@ -1,0 +1,39 @@
+server:
+  port: 8001
+##服务的名称
+spring:
+  application:
+    name: springc-gateway
+##指定注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8002/eureka/
+#自定义路由映射
+zuul:
+  # 是否开启重试，默认为false 注意使用此功能需要引入spring-retry依赖，并且需要配合最下面的ribbon配置一起使用
+  retryable: true
+  prefix : /springc
+  routes:
+    springc-frontend: /ft/**
+    springc-reartube : /rt/**
+  # 配置该属性将会禁止header中的某些属性向下传递，其原理主要是将配置项加入下面的ignored-headers而已
+  sensitive-headers:
+    - Cookie
+    - Set-Cookie
+    - Authorization
+    - token
+  ignored-headers:
+    - token
+## 开启限流保护 全局配置限流
+  ratelimit:
+    enabled: true
+    repository: REDIS
+# 60s内请求超过3次，服务端就抛出异常，60s后可以恢复正常请求
+    default-policy:
+      limit: 100
+      refresh-interval: 60
+      type: origin
+## 开启重试
+ribbon:
+  OkToRetryOnAllOperations: true

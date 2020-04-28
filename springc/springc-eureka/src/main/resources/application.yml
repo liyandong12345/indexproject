@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: springc-eureka
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 30
+  server:
+    enableSelfPreservation: true
+    eviction-interval-timer-in-ms: 6000
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
