@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 客服端
  */
 @Repository
-@FeignClient(value = "frontend",fallback = Gradeclientimpl.class)
+@FeignClient(value = "springc-frontend",fallback = Gradeclientimpl.class)
 public interface GradeClient {
     @GetMapping("/gradebyid")
     public Grade selGrade(@RequestParam(value = "studentId", required = true) Integer studentId);
